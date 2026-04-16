@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Suplementación en Perimenopausia</title>
+<style>
+  :root {
+    --purple-dark: #4A2C5E;
+    --purple-mid: #7B4F9E;
+    --purple-light: #A067C0;
+    --purple-pale: #F3EEF8;
+    --teal: #2E7D8A;
+    --teal-light: #E8F5F7;
+    --gold: #C9833A;
+    --gold-light: #FEF5EB;
+    --red: #C0392B;
+    --green: #1A7A4A;
+    --green-light: #E8F5EE;
+    --text: #1A1A2E;
+    --text-light: #5A5A7A;
+    --white: #FFFFFF;
+    --bg: #F9F7FC;
+    --border: #D8C8E8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-mid) 60%, var(--teal) 100%);
+    color: white;
+    padding: 48px 24px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .site-header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    position: relative;
+  }
+  .site-header h1 span { color: #D4B8F0; }
+  .site-header p {
+    font-size: 1rem;
+    opacity: 0.85;
+    margin-top: 10px;
+    position: relative;
+  }
+  .pills {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 8px; margin-top: 20px; position: relative;
+  }
+  .pill {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all .2s;
+    color: white;
+    text-decoration: none;
+  }
+  .pill:hover { background: rgba(255,255,255,0.3); }
+
+  /* ── NAV SIDEBAR ── */
+  .layout { display: flex; min-height: 100vh; }
+
+  .sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    background: white;
+    border-right: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 24px 0;
+  }
+  .sidebar-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-light);
+    padding: 0 20px 10px;
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.88rem;
+    border-left: 3px solid transparent;
+    transition: all .2s;
+  }
+  .nav-link:hover, .nav-link.active {
+    background: var(--purple-pale);
+    color: var(--purple-mid);
+    border-left-color: var(--purple-mid);
+  }
+  .nav-link .icon { font-size: 1.1rem; }
+  .nav-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 12px 20px;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .main { flex: 1; padding: 40px 32px; max-width: 900px; }
+
+  /* ── SECTION CARD ── */
+  .suppl-section {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(74,44,94,0.07);
+    margin-bottom: 40px;
+    overflow: hidden;
+    scroll-margin-top: 24px;
+  }
+  .suppl-header {
+    padding: 24px 28px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .suppl-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+  .suppl-header h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--purple-dark);
+  }
+  .suppl-header .subtitle {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+  .suppl-body { padding: 24px 28px; }
+
+  /* ── TABS ── */
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid var(--purple-pale);
+    margin-bottom: 20px;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 10px 18px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-light);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all .2s;
+    font-family: inherit;
+  }
+  .tab-btn.active { color: var(--purple-mid); border-bottom-color: var(--purple-mid); }
+  .tab-btn:hover { color: var(--purple-mid); }
+
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* ── INFO BLOCKS ── */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+  .info-box {
+    background: var(--purple-pale);
+    border-radius: 10px;
+    padding: 14px 16px;
+    border-left: 4px solid var(--purple-light);
+  }
+  .info-box.teal { background: var(--teal-light); border-left-color: var(--teal); }
+  .info-box.gold { background: var(--gold-light); border-left-color: var(--gold); }
+  .info-box h4 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--purple-mid);
+    margin-bottom: 5px;
+  }
+  .info-box.teal h4 { color: var(--teal); }
+  .info-box.gold h4 { color: var(--gold); }
+  .info-box p { font-size: 0.9rem; color: var(--text); }
+
+  /* ── BRANDS TABLE ── */
+  .brands-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .brands-table th {
+    background: var(--purple-dark);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .brands-table th:first-child { border-radius: 8px 0 0 0; }
+  .brands-table th:last-child { border-radius: 0 8px 0 0; }
+  .brands-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .brands-table tr:nth-child(even) td { background: var(--purple-pale); }
+  .brands-table tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+  .brands-table tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+  .brand-name { font-weight: 700; color: var(--purple-mid); }
+  .brand-badge {
+    display: inline-block;
+    background: var(--purple-pale);
+    border: 1px solid var(--purple-light);
+    color: var(--purple-mid);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+  }
+
+  /* ── INTERACTIONS ── */
+  .interaction-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .interaction-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    align-items: flex-start;
+  }
+  .interaction-item.warn { background: #FEF2F2; border-left: 4px solid var(--red); }
+  .interaction-item.ok { background: var(--green-light); border-left: 4px solid var(--green); }
+  .interaction-item.info { background: var(--teal-light); border-left: 4px solid var(--teal); }
+  .interaction-item .int-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+  .interaction-item .int-label {
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .interaction-item.warn .int-label { color: var(--red); }
+  .interaction-item.ok .int-label { color: var(--green); }
+  .interaction-item.info .int-label { color: var(--teal); }
+
+  /* ── WARNING BOX ── */
+  .warning-box {
+    background: #FEF2F2;
+    border: 1px solid #F5C6C6;
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 10px;
+    font-size: 0.87rem;
+    color: #7B1F1F;
+    margin-top: 16px;
+  }
+  .warning-box .w-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+  /* ── SUMMARY TABLE ── */
+  .summary-section {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(74,44,94,0.07);
+    padding: 28px;
+    margin-bottom: 40px;
+    scroll-margin-top: 24px;
+  }
+  .summary-section h2 {
+    font-size: 1.3rem;
+    color: var(--purple-dark);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .schedule-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .schedule-col {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .schedule-col-header {
+    padding: 12px 16px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .schedule-col-header.morning { background: linear-gradient(135deg, #E67E22, #F39C12); }
+  .schedule-col-header.midday { background: linear-gradient(135deg, #2E7D8A, #3AAFA9); }
+  .schedule-col-header.night { background: linear-gradient(135deg, #4A2C5E, #7B4F9E); }
+  .schedule-item {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+  .schedule-item:last-child { border-bottom: none; }
+  .schedule-item:nth-child(even) { background: var(--purple-pale); }
+  .schedule-note { font-size: 0.75rem; color: var(--text-light); text-align: right; }
+
+  /* ── COMBOS ── */
+  .combos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .combo-card {
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid var(--border);
+  }
+  .combo-card.green { background: var(--green-light); border-color: #B2DFC7; }
+  .combo-card.orange { background: #FEF5EB; border-color: #F5D9B8; }
+  .combo-card h3 { font-size: 0.95rem; margin-bottom: 12px; }
+  .combo-card.green h3 { color: var(--green); }
+  .combo-card.orange h3 { color: var(--gold); }
+  .combo-item { display: flex; gap: 8px; margin-bottom: 8px; font-size: 0.87rem; }
+  .combo-item .ci { flex-shrink: 0; }
+
+  /* ── INTRO SECTION ── */
+  .intro-section {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(74,44,94,0.07);
+    padding: 28px;
+    margin-bottom: 40px;
+    scroll-margin-top: 24px;
+  }
+  .intro-section h2 { font-size: 1.2rem; color: var(--purple-dark); margin-bottom: 12px; }
+  .intro-section p { font-size: 0.92rem; color: var(--text); margin-bottom: 10px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { padding: 20px 16px; }
+    .info-grid { grid-template-columns: 1fr; }
+    .schedule-grid { grid-template-columns: 1fr; }
+    .combos-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── SCROLL HIGHLIGHT ── */
+  html { scroll-behavior: smooth; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <h1>Guía de Suplementación<br><span>en la Perimenopausia</span></h1>
+  <p>Información experta · Marcas fiables · Interacciones · Dosificación</p>
+  <div class="pills">
+    <a class="pill" href="#omega3">Omega 3</a>
+    <a class="pill" href="#omega7">Omega 7</a>
+    <a class="pill" href="#vitd3">Vitamina D3+K2</a>
+    <a class="pill" href="#magnesio">Magnesio</a>
+    <a class="pill" href="#ashwa">Ashwagandha</a>
+    <a class="pill" href="#colageno">Colágeno</a>
+    <a class="pill" href="#creatina">Creatina</a>
+    <a class="pill" href="#glp">GLP Natural</a>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-title">Navegación</div>
+    <a class="nav-link" href="#intro"><span class="icon">📋</span> Introducción</a>
+    <div class="nav-divider"></div>
+    <div class="sidebar-title">Suplementos</div>
+    <a class="nav-link" href="#omega3"><span class="icon">🐟</span> Omega 3</a>
+    <a class="nav-link" href="#omega7"><span class="icon">🌿</span> Omega 7</a>
+    <a class="nav-link" href="#vitd3"><span class="icon">☀️</span> Vitamina D3+K2</a>
+    <a class="nav-link" href="#magnesio"><span class="icon">🪨</span> Magnesio</a>
+    <a class="nav-link" href="#ashwa"><span class="icon">🌱</span> Ashwagandha</a>
+    <a class="nav-link" href="#colageno"><span class="icon">✨</span> Colágeno</a>
+    <a class="nav-link" href="#creatina"><span class="icon">💪</span> Creatina</a>
+    <a class="nav-link" href="#glp"><span class="icon">⚗️</span> GLP Natural</a>
+    <div class="nav-divider"></div>
+    <a class="nav-link" href="#horario"><span class="icon">🕐</span> Horario del día</a>
+    <a class="nav-link" href="#combos"><span class="icon">🔗</span> Combinaciones</a>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- INTRO -->
+    <section class="intro-section" id="intro">
+      <h2>📋 Cómo usar esta guía</h2>
+      <p>Esta guía resume los suplementos más relevantes para mujeres en perimenopausia, con información práctica sobre para qué sirve cada uno, las marcas más fiables del mercado español, el mejor momento para tomarlo, si conviene hacer descansos, y las interacciones más importantes.</p>
+      <p>Los suplementos son un <strong>apoyo</strong>, no un sustituto de una alimentación real, sueño reparador y movimiento regular. Ante cualquier medicación crónica o duda clínica, consulta siempre con tu médico o farmacéutica.</p>
+      <div class="warning-box">
+        <span class="w-icon">⚠️</span>
+        <span>Esta guía es de carácter <strong>informativo</strong>. Ante cualquier enfermedad, medicación crónica o duda clínica, consulta siempre con tu médico o farmacéutica antes de empezar un suplemento.</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════ OMEGA 3 ══════════════════ -->
+    <section class="suppl-section" id="omega3">
+      <div class="suppl-header">
+        <div class="suppl-icon" style="background:#E8F5F7;">🐟</div>
+        <div>
+          <h2>1. Omega 3 (EPA + DHA)</h2>
+          <div class="subtitle">Antiinflamatorio · Cardiovascular · Cerebro · Estado de ánimo</div>
+        </div>
+      </div>
+      <div class="suppl-body">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'omega3')">Para qué sirve</button>
+          <button class="tab-btn" onclick="switchTab(this,'omega3')">Marcas</button>
+          <button class="tab-btn" onclick="switchTab(this,'omega3')">Dosis y horario</button>
+          <button class="tab-btn" onclick="switchTab(this,'omega3')">Interacciones</button>
+        </div>
+        <div class="tab-pane active">
+          <p>El Omega 3 marino (EPA y DHA) es el antiinflamatorio por excelencia. En la perimenopausia ayuda a <strong>reducir la inflamación de bajo grado</strong> asociada a la caída de estrógenos, mejora el perfil lipídico (baja triglicéridos, eleva HDL), protege la salud cardiovascular y cerebral, apoya el estado de ánimo y puede reducir la intensidad de los sofocos. El DHA es esencial para la membrana neuronal y la salud ocular.</p>
+        </div>
+        <div class="tab-pane">
+          <table class="brands-table">
+            <thead><tr><th style="width:160px">Marca</th><th>Producto y comentario</th></tr></thead>
+            <tbody>
+              <tr><td><span class="brand-name">Algemica</span><span class="brand-badge">⭐ Top</span></td><td>OmegaAlgae o formatos EPA/DHA de alga: origen vegano, sin metales pesados, excelente pureza.</td></tr>
+              <tr><td><span class="brand-name">Khobo Labs</span><span class="brand-badge">⭐ Top</span></td><td>Omega 3 marino alta concentración, certificado IFOS 5 estrellas, TG re-esterificado.</td></tr>
+              <tr><td><span class="brand-name">IVB</span><span class="brand-badge">⭐ Top</span></td><td>Omega 3 ultra concentrado. Triglicérido re-esterificado, alta biodisponibilidad.</td></tr>
+              <tr><td><span class="brand-name">Nordic Naturals</span></td><td>Ultimate Omega. Referencia internacional con certificación IFOS.</td></tr>
+              <tr><td><span class="brand-name">Nutralie</span></td><td>Omega 3 Gold. Buena relación calidad-precio, disponible en España.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane">
+          <div class="info-grid">
+            <div class="info-box">
+              <h4>💊 Dosis diaria</h4>
+              <p>1.000–3.000 mg de <strong>EPA+DHA totales</strong> (no del aceite de pescado total)</p>
+            </div>
+            <div class="info-box teal">
+              <h4>🕐 Cuándo tomarlo</h4>
+              <p>Con la comida que contenga grasa (almuerzo o cena). Mejora absorción y reduce sabor a pescado.</p>
+            </div>
+            <div class="info-box gold">
+              <h4>🔄 Descansos</h4>
+              <p><strong>No necesarios.</strong> Se puede tomar de forma continuada todo el año.</p>
+            </div>
+            <div class="info-box">
+              <h4>💡 Tip de calidad</h4>
+              <p>Busca el sello <strong>IFOS 5 estrellas</strong> y forma TG re-esterificado para mayor absorción.</p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane">
+          <ul class="interaction-list">
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Fármacos</span>Anticoagulantes (warfarina, acenocumarol) y antiagregantes (AAS, clopidogrel): a dosis altas (&gt;3 g/día) puede potenciar el efecto. Informa a tu médico.</div>
+            </li>
+            <li class="interaction-item ok">
+              <span class="int-icon">✅</span>
+              <div><span class="int-label">Sinergia con suplementos</span>Vitamina E y vitamina D: sinergia positiva, se complementan bien. Omega 7: efecto antiinflamatorio aditivo.</div>
+            </li>
+            <li class="interaction-item info">
+              <span class="int-icon">🍽️</span>
+              <div><span class="int-label">Alimentos</span>Los alimentos ricos en omega 6 (aceites de girasol, soja) en exceso compiten con omega 3. Reduce ultraprocesados.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ OMEGA 7 ══════════════════ -->
+    <section class="suppl-section" id="omega7">
+      <div class="suppl-header">
+        <div class="suppl-icon" style="background:#FEF5EB;">🌿</div>
+        <div>
+          <h2>2. Omega 7 (Ácido Palmitoleico)</h2>
+          <div class="subtitle">Mucosas · Sequedad vaginal · Piel · Metabolismo</div>
+        </div>
+      </div>
+      <div class="suppl-body">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'omega7')">Para qué sirve</button>
+          <button class="tab-btn" onclick="switchTab(this,'omega7')">Marcas</button>
+          <button class="tab-btn" onclick="switchTab(this,'omega7')">Dosis y horario</button>
+          <button class="tab-btn" onclick="switchTab(this,'omega7')">Interacciones</button>
+        </div>
+        <div class="tab-pane active">
+          <p>El ácido palmitoleico (omega 7), abundante en el <strong>espino amarillo (sea buckthorn)</strong> y el aceite de macadamia, actúa sobre las mucosas: vaginal, digestiva y ocular. Es uno de los suplementos más específicos para la <strong>sequedad vaginal y uretral</strong> asociada al síndrome genitourinario de la menopausia (SGUM). También mejora la elasticidad de la piel, modula el metabolismo de los lípidos y tiene efecto antiinflamatorio complementario al omega 3.</p>
+        </div>
+        <div class="tab-pane">
+          <table class="brands-table">
+            <thead><tr><th style="width:160px">Marca</th><th>Producto y comentario</th></tr></thead>
+            <tbody>
+              <tr><td><span class="brand-name">Sibu Beauty</span><span class="brand-badge">⭐ Top</span></td><td>Aceite de espino amarillo estandarizado. Referencia internacional para omega 7 de calidad.</td></tr>
+              <tr><td><span class="brand-name">Pharma Nord</span><span class="brand-badge">⭐ Top</span></td><td>Formulación nórdica con espino amarillo, buena pureza y concentración de palmitoleico.</td></tr>
+              <tr><td><span class="brand-name">Bonusan</span></td><td>Disponible en España, opción accesible con buena concentración.</td></tr>
+              <tr><td><span class="brand-name">Nutralie</span></td><td>Omega 7 de sea buckthorn. Relación calidad-precio correcta.</td></tr>
+              <tr><td><span class="brand-name">Khobo Labs</span></td><td>Consultar catálogo actualizado; combinaciones con otros ácidos grasos.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane">
+          <div class="info-grid">
+            <div class="info-box">
+              <h4>💊 Dosis diaria</h4>
+              <p>420–1.000 mg de omega 7 puro (palmitoleico) al día</p>
+            </div>
+            <div class="info-box teal">
+              <h4>🕐 Cuándo tomarlo</h4>
+              <p>Con comidas que contengan grasa para maximizar la absorción.</p>
+            </div>
+            <div class="info-box gold">
+              <h4>🔄 Descansos</h4>
+              <p><strong>No necesarios.</strong> Se puede mantener de forma continuada.</p>
+            </div>
+            <div class="info-box">
+              <h4>💡 A tener en cuenta</h4>
+              <p>Puede tardar 4–8 semanas en notar mejoría en mucosas. Constancia.</p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane">
+          <ul class="interaction-list">
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Fármacos</span>Anticoagulantes: puede sumarse al efecto del omega 3. Vigilar si tomas ambos a dosis altas.</div>
+            </li>
+            <li class="interaction-item ok">
+              <span class="int-icon">✅</span>
+              <div><span class="int-label">Sinergia con suplementos</span>Omega 3: combinación sinérgica antiinflamatoria y para mucosas. Se complementan muy bien.</div>
+            </li>
+            <li class="interaction-item info">
+              <span class="int-icon">🍽️</span>
+              <div><span class="int-label">Alimentos</span>Sin interacciones alimentarias relevantes conocidas.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ VIT D3 + K2 ══════════════════ -->
+    <section class="suppl-section" id="vitd3">
+      <div class="suppl-header">
+        <div class="suppl-icon" style="background:#FFFDE7;">☀️</div>
+        <div>
+          <h2>3. Vitamina D3 + K2</h2>
+          <div class="subtitle">Huesos · Sistema inmune · Absorción de calcio · Estado de ánimo</div>
+        </div>
+      </div>
+      <div class="suppl-body">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'vitd3')">Para qué sirve</button>
+          <button class="tab-btn" onclick="switchTab(this,'vitd3')">Marcas</button>
+          <button class="tab-btn" onclick="switchTab(this,'vitd3')">Dosis y horario</button>
+          <button class="tab-btn" onclick="switchTab(this,'vitd3')">Interacciones</button>
+        </div>
+        <div class="tab-pane active">
+          <p>La vitamina D3 es fundamental para la <strong>salud ósea</strong>, el sistema inmune, el estado de ánimo y la función muscular. En perimenopausia la pérdida ósea se acelera y la vitamina D es indispensable para absorber el calcio. La vitamina <strong>K2 (MK-7)</strong> dirige el calcio hacia los huesos y dientes, evitando su acumulación en arterias y tejidos blandos. <strong>Deben tomarse juntas</strong> para un efecto seguro y eficaz.</p>
+        </div>
+        <div class="tab-pane">
+          <table class="brands-table">
+            <thead><tr><th style="width:160px">Marca</th><th>Producto y comentario</th></tr></thead>
+            <tbody>
+              <tr><td><span class="brand-name">IVB</span><span class="brand-badge">⭐ Top</span></td><td>Vitamina D3+K2 en aceite MCT. Alta concentración, MK-7 de natto, excelente biodisponibilidad.</td></tr>
+              <tr><td><span class="brand-name">Algemica</span><span class="brand-badge">⭐ Top</span></td><td>Formatos D3+K2 de calidad farmacéutica. Buena relación calidad-precio.</td></tr>
+              <tr><td><span class="brand-name">Vitae Nutrition</span></td><td>VitD3+K2 líquido, cómodo de dosificar, MK-7 all-trans (la forma más activa).</td></tr>
+              <tr><td><span class="brand-name">Thorne</span></td><td>K2-D3 de Thorne es referencia clínica internacional. Máxima pureza.</td></tr>
+              <tr><td><span class="brand-name">Nutralie</span></td><td>Opción accesible y de buena calidad disponible en España.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane">
+          <div class="info-grid">
+            <div class="info-box">
+              <h4>💊 Dosis diaria</h4>
+              <p><strong>D3:</strong> 2.000–4.000 UI/día (según analítica, objetivo 40-60 ng/mL)<br><strong>K2 (MK-7):</strong> 100–200 mcg/día</p>
+            </div>
+            <div class="info-box teal">
+              <h4>🕐 Cuándo tomarlo</h4>
+              <p>Por la mañana, con desayuno o almuerzo con algo de grasa. Vitamina D es liposoluble.</p>
+            </div>
+            <div class="info-box gold">
+              <h4>🔄 Descansos</h4>
+              <p><strong>No necesarios</strong> si se mantiene en rangos seguros. Controlar con analítica anual.</p>
+            </div>
+            <div class="info-box">
+              <h4>🔬 Control analítico</h4>
+              <p>Medir 25-OH vitamina D en sangre. Ajustar dosis con tu médico.</p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane">
+          <ul class="interaction-list">
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Fármacos – Diuréticos tiazídicos</span>Dosis altas de vitamina D + tiazidas: riesgo de hipercalcemia. Consultar médico.</div>
+            </li>
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Fármacos – Anticoagulantes</span>La K2 puede interactuar con warfarina (aunque MK-7 tiene menor efecto que K1). Informar al médico.</div>
+            </li>
+            <li class="interaction-item ok">
+              <span class="int-icon">✅</span>
+              <div><span class="int-label">Sinergia con suplementos</span>Magnesio (necesario para activar vitamina D), Calcio (sinérgico), Omega 3 (sinergia antiinflamatoria ósea).</div>
+            </li>
+            <li class="interaction-item info">
+              <span class="int-icon">🍽️</span>
+              <div><span class="int-label">Alimentos</span>Los alimentos grasos mejoran la absorción. El aceite de oliva es un buen vehículo. Evitar tomar en ayunas.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ MAGNESIO ══════════════════ -->
+    <section class="suppl-section" id="magnesio">
+      <div class="suppl-header">
+        <div class="suppl-icon" style="background:#EEF2FF;">🪨</div>
+        <div>
+          <h2>4. Magnesio</h2>
+          <div class="subtitle">Sueño · Estrés · Calambres · Huesos · Glucosa</div>
+        </div>
+      </div>
+      <div class="suppl-body">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'magnesio')">Para qué sirve</button>
+          <button class="tab-btn" onclick="switchTab(this,'magnesio')">Tipos y marcas</button>
+          <button class="tab-btn" onclick="switchTab(this,'magnesio')">Dosis y horario</button>
+          <button class="tab-btn" onclick="switchTab(this,'magnesio')">Interacciones</button>
+        </div>
+        <div class="tab-pane active">
+          <p>El magnesio participa en más de <strong>300 reacciones enzimáticas</strong>. En perimenopausia destaca por mejorar la calidad del sueño, reducir la ansiedad y el estrés, aliviar los calambres musculares, apoyar la salud ósea (cofactor de vitamina D y calcio), regular la glucosa y reducir el riesgo de migraña. <strong>La forma importa mucho según el objetivo.</strong></p>
+        </div>
+        <div class="tab-pane">
+          <table class="brands-table">
+            <thead><tr><th>Forma</th><th>Mejor para</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Glicinato / Bisglicinato</strong></td><td>Sueño, ansiedad, estrés. Muy bien tolerado. ⭐ El más recomendado en perimenopausia.</td></tr>
+              <tr><td><strong>Malato</strong></td><td>Energía, fatiga, fibromialgia. Tomar de día.</td></tr>
+              <tr><td><strong>Treonato (Magtein®)</strong></td><td>Función cognitiva, memoria, niebla mental. Cruza la barrera hematoencefálica.</td></tr>
+              <tr><td><strong>Citrato</strong></td><td>Estreñimiento, tránsito lento. Efecto laxante suave.</td></tr>
+              <tr><td><strong>Óxido</strong></td><td>❌ Baja biodisponibilidad. Evitar para uso sistémico.</td></tr>
+            </tbody>
+          </table>
+          <div style="margin-top:20px">
+          <table class="brands-table">
+            <thead><tr><th style="width:160px">Marca</th><th>Producto y comentario</th></tr></thead>
+            <tbody>
+              <tr><td><span class="brand-name">IVB</span><span class="brand-badge">⭐ Top</span></td><td>Magnesio Bisglicinato Premium. Alta pureza y concentración, excelente tolerancia digestiva.</td></tr>
+              <tr><td><span class="brand-name">Algemica</span><span class="brand-badge">⭐ Top</span></td><td>Bisglicinato y malato de calidad farmacéutica.</td></tr>
+              <tr><td><span class="brand-name">Vitae Nutrition</span></td><td>MagVitae (bisglicinato). Formato polvo cómodo con buena dosificación.</td></tr>
+              <tr><td><span class="brand-name">Thorne</span></td><td>Magnesio bisglicinato. Referencia clínica internacional, máxima pureza.</td></tr>
+              <tr><td><span class="brand-name">Khobo Labs</span></td><td>Formato glicinato en combinación con otros minerales.</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+        <div class="tab-pane">
+          <div class="info-grid">
+            <div class="info-box">
+              <h4>💊 Dosis diaria</h4>
+              <p>300–400 mg de <strong>magnesio elemental</strong> al día (no del compuesto total)</p>
+            </div>
+            <div class="info-box teal">
+              <h4>🕐 Cuándo tomarlo</h4>
+              <p><strong>Glicinato/treonato:</strong> noche, 30–60 min antes de dormir<br><strong>Malato:</strong> mañana o mediodía<br><strong>Citrato:</strong> mañana o noche</p>
+            </div>
+            <div class="info-box gold">
+              <h4>🔄 Descansos</h4>
+              <p><strong>No necesarios.</strong> Tomar de manera continua.</p>
+            </div>
+            <div class="info-box">
+              <h4>💡 Tip</h4>
+              <p>Si empiezas con síntomas digestivos, comienza con dosis bajas (150 mg) y aumenta gradualmente.</p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane">
+          <ul class="interaction-list">
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Antibióticos</span>Tetraciclinas y quinolonas: el magnesio reduce su absorción. Separar al menos 2 horas.</div>
+            </li>
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Inhibidores de bomba de protones</span>Omeprazol y similares en uso crónico pueden reducir absorción de magnesio.</div>
+            </li>
+            <li class="interaction-item ok">
+              <span class="int-icon">✅</span>
+              <div><span class="int-label">Sinergia con suplementos</span>Vitamina D3 (cofactor), K2 (sinergia ósea), Ashwagandha (protocolo sueño-cortisol).</div>
+            </li>
+            <li class="interaction-item info">
+              <span class="int-icon">🍽️</span>
+              <div><span class="int-label">Alimentos</span>El calcio en exceso compite con el magnesio. No tomar suplementos de calcio y magnesio a la vez.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ ASHWAGANDHA ══════════════════ -->
+    <section class="suppl-section" id="ashwa">
+      <div class="suppl-header">
+        <div class="suppl-icon" style="background:#F0FFF4;">🌱</div>
+        <div>
+          <h2>5. Ashwagandha</h2>
+          <div class="subtitle">Adaptógeno · Cortisol · Ansiedad · Sueño · Tiroides</div>
+        </div>
+      </div>
+      <div class="suppl-body">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'ashwa')">Para qué sirve</button>
+          <button class="tab-btn" onclick="switchTab(this,'ashwa')">Marcas</button>
+          <button class="tab-btn" onclick="switchTab(this,'ashwa')">Dosis y horario</button>
+          <button class="tab-btn" onclick="switchTab(this,'ashwa')">Interacciones</button>
+        </div>
+        <div class="tab-pane active">
+          <p>La ashwagandha (<em>Withania somnifera</em>) es el adaptógeno más estudiado. Actúa sobre el <strong>eje HPA</strong> (hipotálamo-hipófisis-adrenal), reduciendo el cortisol crónico. En perimenopausia es muy útil para el estrés acumulado, la ansiedad, la fatiga, la dificultad para conciliar el sueño y el bajo deseo sexual. También apoya la función tiroidea (eleva T3 y T4 levemente) y la masa muscular. Los extractos <strong>KSM-66®</strong> y <strong>Sensoril®</strong> son los más validados clínicamente.</p>
+        </div>
+        <div class="tab-pane">
+          <table class="brands-table">
+            <thead><tr><th style="width:160px">Marca</th><th>Producto y comentario</th></tr></thead>
+            <tbody>
+              <tr><td><span class="brand-name">Khobo Labs</span><span class="brand-badge">⭐ Top</span></td><td>Ashwagandha con extracto KSM-66®. Dosis terapéutica, formulación limpia. Muy recomendada.</td></tr>
+              <tr><td><span class="brand-name">Nutralie</span><span class="brand-badge">⭐ Top</span></td><td>Ashwagandha KSM-66® o Sensoril®. Excelente relación calidad-precio, disponible en España.</td></tr>
+              <tr><td><span class="brand-name">Solgar</span></td><td>Ashwagandha Full Spectrum. Buena calidad, amplia disponibilidad.</td></tr>
+              <tr><td><span class="brand-name">Vitae Nutrition</span></td><td>Extract 300-600 mg con KSM-66®. Verificar que especifique extracto estandarizado.</td></tr>
+              <tr><td><span class="brand-name">IVB</span></td><td>Formato de alta concentración. Confirmar extracción estandarizada en etiqueta.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane">
+          <div class="info-grid">
+            <div class="info-box">
+              <h4>💊 Dosis diaria</h4>
+              <p>300–600 mg de extracto estandarizado (KSM-66® o Sensoril®). <strong>Evitar polvos sin estandarizar.</strong></p>
+            </div>
+            <div class="info-box teal">
+              <h4>🕐 Cuándo tomarlo</h4>
+              <p><strong>Noche:</strong> si el objetivo es sueño y cortisol nocturno<br><strong>Mañana:</strong> si el objetivo es energía y adaptación al estrés diurno</p>
+            </div>
+            <div class="info-box gold">
+              <h4>🔄 Descansos</h4>
+              <p><strong>SÍ. Necesarios.</strong> Ciclos de 8–12 semanas + descanso de 3–4 semanas.</p>
+            </div>
+            <div class="info-box">
+              <h4>💡 Tip</h4>
+              <p>Tomar con algo de alimento para evitar malestar gástrico. Los efectos se notan gradualmente (2–4 semanas).</p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane">
+          <ul class="interaction-list">
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Sedantes y ansiolíticos</span>Benzodiacepinas, zolpidem: puede potenciar el efecto sedante. Usar con precaución.</div>
+            </li>
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Medicación tiroidea</span>Levotiroxina: puede elevar T3/T4. Monitorizar TSH si hay hipotiroidismo tratado.</div>
+            </li>
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Inmunosupresores</span>Puede estimular el sistema inmune y reducir su eficacia.</div>
+            </li>
+            <li class="interaction-item ok">
+              <span class="int-icon">✅</span>
+              <div><span class="int-label">Sinergia con suplementos</span>Magnesio glicinato (protocolo sueño-cortisol muy eficaz). Rodiola con precaución (efecto estimulante adicional).</div>
+            </li>
+          </ul>
+          <div class="warning-box">
+            <span class="w-icon">⚠️</span>
+            <span>Evitar en <strong>embarazo, lactancia</strong> y enfermedades autoinmunes activas. No recomendada si hay hipotiroidismo sin control médico.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ COLÁGENO ══════════════════ -->
+    <section class="suppl-section" id="colageno">
+      <div class="suppl-header">
+        <div class="suppl-icon" style="background:#FFF0F3;">✨</div>
+        <div>
+          <h2>6. Péptidos de Colágeno</h2>
+          <div class="subtitle">Piel · Articulaciones · Huesos · Tendones</div>
+        </div>
+      </div>
+      <div class="suppl-body">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'colageno')">Para qué sirve</button>
+          <button class="tab-btn" onclick="switchTab(this,'colageno')">Marcas</button>
+          <button class="tab-btn" onclick="switchTab(this,'colageno')">Dosis y horario</button>
+          <button class="tab-btn" onclick="switchTab(this,'colageno')">Interacciones</button>
+        </div>
+        <div class="tab-pane active">
+          <p>La producción de colágeno cae entre un <strong>30% en los primeros 5 años</strong> tras la menopausia. La suplementación con péptidos hidrolizados mejora la elasticidad y firmeza de la piel, la salud articular (cartílago, tendones, ligamentos) y contribuye a la densidad ósea. Los péptidos específicos <strong>Verisol®</strong> (piel), <strong>Fortigel®</strong> (cartílago) y <strong>Petagus®</strong> (hueso) tienen evidencia clínica propia. El colágeno tipo II no desnaturalizado (<strong>UC-II®</strong>) es especialmente útil para articulaciones.</p>
+        </div>
+        <div class="tab-pane">
+          <table class="brands-table">
+            <thead><tr><th style="width:160px">Marca</th><th>Producto y comentario</th></tr></thead>
+            <tbody>
+              <tr><td><span class="brand-name">Genuina Health</span><span class="brand-badge">⭐ Top</span></td><td>Colágeno marino Peptan®. Referencia mundial, alta biodisponibilidad y pureza contrastada.</td></tr>
+              <tr><td><span class="brand-name">Khobo Labs</span><span class="brand-badge">⭐ Top</span></td><td>Colágeno marino hidrolizado de calidad. Buena concentración de péptidos por dosis.</td></tr>
+              <tr><td><span class="brand-name">IVB</span><span class="brand-badge">⭐ Top</span></td><td>Colágeno con péptidos específicos + vitamina C. Combinación ideal para síntesis endógena.</td></tr>
+              <tr><td><span class="brand-name">Peptan® / Naticol®</span></td><td>Ingredientes activos de referencia clínica. Busca estos nombres en la etiqueta de cualquier marca.</td></tr>
+              <tr><td><span class="brand-name">Nutralie</span></td><td>Colágeno marino con vitamina C y ácido hialurónico. Accesible y disponible en España.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane">
+          <div class="info-grid">
+            <div class="info-box">
+              <h4>💊 Dosis diaria</h4>
+              <p><strong>Péptidos hidrolizados:</strong> 10–15 g/día<br><strong>UC-II® (tipo II):</strong> 40 mg en ayunas</p>
+            </div>
+            <div class="info-box teal">
+              <h4>🕐 Cuándo tomarlo</h4>
+              <p>En ayunas o entre comidas. <strong>Siempre con vitamina C</strong> (50–100 mg mínimo) para activar síntesis endógena.</p>
+            </div>
+            <div class="info-box gold">
+              <h4>🔄 Descansos</h4>
+              <p><strong>No necesarios.</strong> Efecto acumulativo: mantener de forma continua al menos 3 meses.</p>
+            </div>
+            <div class="info-box">
+              <h4>💡 Tip</h4>
+              <p>Tomar con agua o zumo de naranja (vitamina C natural). Reducir azúcares añadidos (la glucación daña el colágeno).</p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane">
+          <ul class="interaction-list">
+            <li class="interaction-item ok">
+              <span class="int-icon">✅</span>
+              <div><span class="int-label">Vitamina C</span>Sinergia esencial. No tomar colágeno sin vitamina C: es indispensable para la síntesis de colágeno endógeno.</div>
+            </li>
+            <li class="interaction-item ok">
+              <span class="int-icon">✅</span>
+              <div><span class="int-label">Zinc y silicio</span>Cofactores que apoyan la síntesis. Combinación positiva.</div>
+            </li>
+            <li class="interaction-item info">
+              <span class="int-icon">🍽️</span>
+              <div><span class="int-label">Alimentos</span>Tomar con zumo de naranja (vitamina C). Los alimentos ricos en azúcar gluifican el colágeno: reducir azúcares añadidos.</div>
+            </li>
+            <li class="interaction-item info">
+              <span class="int-icon">ℹ️</span>
+              <div><span class="int-label">Fármacos</span>Sin interacciones farmacológicas relevantes conocidas.</div>
+            </li>
+          </ul>
+          <div class="warning-box">
+            <span class="w-icon">⚠️</span>
+            <span>Alérgicas a pescado: optar por colágeno bovino. El colágeno vegano no aporta los mismos aminoácidos precursores.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ CREATINA ══════════════════ -->
+    <section class="suppl-section" id="creatina">
+      <div class="suppl-header">
+        <div class="suppl-icon" style="background:#EEF5FF;">💪</div>
+        <div>
+          <h2>7. Creatina (Monohidrato)</h2>
+          <div class="subtitle">Músculo · Fuerza · Huesos · Función cognitiva · Fatiga</div>
+        </div>
+      </div>
+      <div class="suppl-body">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'creatina')">Para qué sirve</button>
+          <button class="tab-btn" onclick="switchTab(this,'creatina')">Marcas</button>
+          <button class="tab-btn" onclick="switchTab(this,'creatina')">Dosis y horario</button>
+          <button class="tab-btn" onclick="switchTab(this,'creatina')">Interacciones</button>
+        </div>
+        <div class="tab-pane active">
+          <p>La creatina es uno de los suplementos <strong>más investigados y seguros</strong> que existen. En perimenopausia ofrece beneficios únicos: preserva y mejora la <strong>masa muscular</strong> (combate la sarcopenia), aumenta la fuerza y potencia, mejora la <strong>densidad mineral ósea</strong> (con entrenamiento de fuerza), tiene efectos neuroprotectores con mejoras en memoria y función cognitiva, y combate la fatiga y el "brain fog de menopausia". La forma <strong>monohidrato</strong> es la única con evidencia sólida.</p>
+        </div>
+        <div class="tab-pane">
+          <table class="brands-table">
+            <thead><tr><th style="width:160px">Marca</th><th>Producto y comentario</th></tr></thead>
+            <tbody>
+              <tr><td><span class="brand-name">Khobo Labs</span><span class="brand-badge">⭐ Top</span></td><td>Creatina monohidrato micronizada. Alta pureza, sin excipientes innecesarios.</td></tr>
+              <tr><td><span class="brand-name">IVB</span><span class="brand-badge">⭐ Top</span></td><td>Creatina monohidrato con sello Creapure®. Referencia en España.</td></tr>
+              <tr><td><span class="brand-name">Creapure®</span><span class="brand-badge">Estándar de oro</span></td><td>Materia prima alemana de máxima pureza. Muchas marcas la usan. Busca el sello en etiqueta.</td></tr>
+              <tr><td><span class="brand-name">Allmuscle / HSN</span></td><td>Opción económica y de calidad. Verificar sello Creapure® en versión premium.</td></tr>
+              <tr><td><span class="brand-name">Nutralie</span></td><td>Creatina monohidrato accesible y con buena relación calidad-precio.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane">
+          <div class="info-grid">
+            <div class="info-box">
+              <h4>💊 Dosis diaria</h4>
+              <p>3–5 g al día de forma continuada. <strong>No es necesaria la fase de carga.</strong> En mujeres, 3 g/día suele ser suficiente.</p>
+            </div>
+            <div class="info-box teal">
+              <h4>🕐 Cuándo tomarlo</h4>
+              <p>Cualquier momento del día. Post-entrenamiento puede ser ligeramente mejor. <strong>La constancia es lo más importante.</strong></p>
+            </div>
+            <div class="info-box gold">
+              <h4>🔄 Descansos</h4>
+              <p><strong>No necesarios.</strong> Segura a largo plazo. No hay evidencia de daño renal en personas sanas.</p>
+            </div>
+            <div class="info-box">
+              <h4>💡 Tip</h4>
+              <p>Mantener buena hidratación (al menos 2L de agua al día). Disolver en agua tibia mejora la solubilidad.</p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane">
+          <ul class="interaction-list">
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Cafeína en megadosis</span>La cafeína crónica en dosis altas puede atenuar el efecto ergogénico. El café del día a día no es problema.</div>
+            </li>
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Metformina</span>Puede reducir la absorción de creatina. Separar 2-3 horas.</div>
+            </li>
+            <li class="interaction-item ok">
+              <span class="int-icon">✅</span>
+              <div><span class="int-label">Sinergia con suplementos</span>Colágeno (músculo y estructura), proteína de suero (whey). Combinación muy favorable para preservar masa muscular.</div>
+            </li>
+            <li class="interaction-item info">
+              <span class="int-icon">🍽️</span>
+              <div><span class="int-label">Alimentos</span>Disolver en agua tibia o zumo. Mantener buena hidratación (2L+ de agua al día).</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ GLP NATURAL ══════════════════ -->
+    <section class="suppl-section" id="glp">
+      <div class="suppl-header">
+        <div class="suppl-icon" style="background:#F0FFF4;">⚗️</div>
+        <div>
+          <h2>8. Suplementos Tipo GLP-1 Natural</h2>
+          <div class="subtitle">Metabolismo · Apetito · Glucosa · Resistencia a la insulina</div>
+        </div>
+      </div>
+      <div class="suppl-body">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'glp')">Para qué sirve</button>
+          <button class="tab-btn" onclick="switchTab(this,'glp')">Marcas</button>
+          <button class="tab-btn" onclick="switchTab(this,'glp')">Dosis y horario</button>
+          <button class="tab-btn" onclick="switchTab(this,'glp')">Interacciones</button>
+        </div>
+        <div class="tab-pane active">
+          <p>Los suplementos "tipo GLP-1" buscan potenciar la acción del péptido GLP-1 (glucagon-like peptide-1) de forma natural, <strong>sin ser análogos farmacológicos</strong> (como semaglutida). Su objetivo es regular el apetito, mejorar la sensibilidad a la insulina, controlar el peso y reducir los antojos de azúcar. En perimenopausia, el cambio metabólico y el aumento de resistencia a la insulina hacen estos objetivos especialmente relevantes.</p>
+          <p style="margin-top:12px">Suelen combinar ingredientes como <strong>berberina</strong>, <strong>inositol</strong> (mio-inositol), <strong>ácido alfa-lipoico (ALA)</strong>, cromo, extracto de té verde (EGCG) o fucoxantina para actuar sobre el metabolismo glucémico y la saciedad. El producto de <strong>Khobo Labs</strong> se basa principalmente en berberina HCl de alta pureza e inositol.</p>
+        </div>
+        <div class="tab-pane">
+          <table class="brands-table">
+            <thead><tr><th style="width:160px">Marca</th><th>Producto y comentario</th></tr></thead>
+            <tbody>
+              <tr><td><span class="brand-name">Khobo Labs</span><span class="brand-badge">⭐ Referencia</span></td><td>GLP Natural (berberina + inositol + ALA). Formulación específica para metabolismo en perimenopausia. Referencia principal.</td></tr>
+              <tr><td><span class="brand-name">Algemica</span><span class="brand-badge">⭐ Top</span></td><td>Berberina y fórmulas metabólicas de calidad farmacéutica. Excelente pureza.</td></tr>
+              <tr><td><span class="brand-name">IVB</span><span class="brand-badge">⭐ Top</span></td><td>Berberina HCl + soporte metabólico. Alta biodisponibilidad.</td></tr>
+              <tr><td><span class="brand-name">Nutralie / Solgar</span></td><td>Mio-inositol independiente como complemento. Útil en resistencia a la insulina y SOPQ.</td></tr>
+              <tr><td><span class="brand-name">Genérico calidad</span></td><td>Buscar berberina HCl ≥97% de pureza y 500 mg/toma para dosis terapéutica real.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane">
+          <div class="info-grid">
+            <div class="info-box">
+              <h4>💊 Dosis diaria</h4>
+              <p><strong>Berberina:</strong> 500 mg × 2-3 veces/día<br><strong>Mio-inositol:</strong> 2–4 g/día<br><strong>ALA:</strong> 300–600 mg/día</p>
+            </div>
+            <div class="info-box teal">
+              <h4>🕐 Cuándo tomarlo</h4>
+              <p>Antes o durante las comidas principales para modular la respuesta glucémica postprandial.</p>
+            </div>
+            <div class="info-box gold">
+              <h4>🔄 Descansos</h4>
+              <p><strong>SÍ. Recomendables.</strong> Ciclos de 8–12 semanas + descanso de 3–4 semanas. Analítica glucosa e insulina para valorar respuesta.</td>
+            </div>
+            <div class="info-box">
+              <h4>🔬 Control analítico</h4>
+              <p>Glucosa en ayunas, insulina, HbA1c antes de empezar y cada 3 meses.</p>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane">
+          <ul class="interaction-list">
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Metformina y antidiabéticos</span>La berberina potencia el efecto hipoglucemiante. Puede requerir ajuste médico de dosis. <strong>INFORMAR SIEMPRE al médico.</strong></div>
+            </li>
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Estatinas</span>La berberina inhibe CYP3A4 y puede aumentar los niveles plasmáticos de estatinas. Consultar con médico.</div>
+            </li>
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Antihipertensivos</span>Puede tener efecto hipotensor aditivo. Monitorizar presión arterial.</div>
+            </li>
+            <li class="interaction-item warn">
+              <span class="int-icon">⚠️</span>
+              <div><span class="int-label">Antibióticos</span>La berberina puede alterar la microbiota. No combinar de forma simultánea.</div>
+            </li>
+            <li class="interaction-item ok">
+              <span class="int-icon">✅</span>
+              <div><span class="int-label">Sinergia con suplementos</span>Omega 3 (sinergia metabólica), Magnesio (mejora sensibilidad a insulina), Cromo (sinérgico para glucosa).</div>
+            </li>
+          </ul>
+          <div class="warning-box">
+            <span class="w-icon">⚠️</span>
+            <span><strong>NO usar berberina en embarazo ni lactancia.</strong> No recomendado en hipoglucemia reactiva sin supervisión médica.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ HORARIO ══════════════════ -->
+    <section class="summary-section" id="horario">
+      <h2>🕐 Organización del día</h2>
+      <div class="schedule-grid">
+        <div class="schedule-col">
+          <div class="schedule-col-header morning">☀️ Mañana</div>
+          <div class="schedule-item"><span>Vitamina D3+K2</span><span class="schedule-note">Con desayuno graso</span></div>
+          <div class="schedule-item"><span>Omega 3 (1ª dosis)</span><span class="schedule-note">Con comida</span></div>
+          <div class="schedule-item"><span>Magnesio malato</span><span class="schedule-note">Si fatiga/energía</span></div>
+          <div class="schedule-item"><span>Creatina</span><span class="schedule-note">Cualquier momento</span></div>
+          <div class="schedule-item"><span>Ashwagandha</span><span class="schedule-note">Si objetivo energía</span></div>
+        </div>
+        <div class="schedule-col">
+          <div class="schedule-col-header midday">🌤️ Mediodía / Tarde</div>
+          <div class="schedule-item"><span>Omega 7</span><span class="schedule-note">Con almuerzo</span></div>
+          <div class="schedule-item"><span>Berberina/GLP</span><span class="schedule-note">Antes de comidas</span></div>
+          <div class="schedule-item"><span>Colágeno</span><span class="schedule-note">Entre comidas + Vit C</span></div>
+          <div class="schedule-item"><span>Omega 3 (2ª dosis)</span><span class="schedule-note">Con comida</span></div>
+        </div>
+        <div class="schedule-col">
+          <div class="schedule-col-header night">🌙 Noche</div>
+          <div class="schedule-item"><span>Magnesio glicinato</span><span class="schedule-note">30-60 min antes dormir</span></div>
+          <div class="schedule-item"><span>Ashwagandha</span><span class="schedule-note">Si objetivo sueño</span></div>
+          <div class="schedule-item"><span>Omega 3 (si 1 dosis)</span><span class="schedule-note">Con cena</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ COMBOS ══════════════════ -->
+    <section class="summary-section" id="combos">
+      <h2>🔗 Combinaciones: qué funciona bien junto y qué separar</h2>
+      <div class="combos-grid">
+        <div class="combo-card green">
+          <h3>✅ Combinaciones sinérgicas</h3>
+          <div class="combo-item"><span class="ci">🌟</span><span><strong>D3 + K2 + Magnesio:</strong> trío básico para huesos y hormonal</span></div>
+          <div class="combo-item"><span class="ci">🌟</span><span><strong>Omega 3 + D3:</strong> ambos liposolubles, absorción complementaria</span></div>
+          <div class="combo-item"><span class="ci">🌟</span><span><strong>Colágeno + Vitamina C:</strong> indispensable para síntesis</span></div>
+          <div class="combo-item"><span class="ci">🌟</span><span><strong>Creatina + Colágeno + Proteína:</strong> stack para músculo y estructura</span></div>
+          <div class="combo-item"><span class="ci">🌟</span><span><strong>Ashwagandha + Magnesio glicinato:</strong> protocolo sueño-cortisol</span></div>
+          <div class="combo-item"><span class="ci">🌟</span><span><strong>Berberina + Omega 3 + Magnesio:</strong> apoyo metabólico completo</span></div>
+        </div>
+        <div class="combo-card orange">
+          <h3>⚠️ Qué separar o vigilar</h3>
+          <div class="combo-item"><span class="ci">↔️</span><span><strong>Magnesio + Calcio:</strong> compiten por absorción. Separar 2 horas.</span></div>
+          <div class="combo-item"><span class="ci">↔️</span><span><strong>Berberina + Metformina/Estatinas:</strong> potencia efectos, supervisión médica.</span></div>
+          <div class="combo-item"><span class="ci">↔️</span><span><strong>Ashwagandha + Sedantes:</strong> potencia la sedación.</span></div>
+          <div class="combo-item"><span class="ci">↔️</span><span><strong>Omega 3+7 altas dosis + Anticoagulantes:</strong> efecto sumativo.</span></div>
+          <div class="combo-item"><span class="ci">↔️</span><span><strong>Zinc + Magnesio simultáneo:</strong> pueden competir. Usar ZMA o separar.</span></div>
+          <div class="combo-item"><span class="ci">↔️</span><span><strong>Creatina + cafeína megadosis:</strong> puede reducir efecto ergogénico.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Guía de referencia personal · Información actualizada 2025–2026 · Siempre consulta con tu médico o profesional de salud.
+    </div>
+
+  </main>
+</div>
+
+<script>
+  function switchTab(btn, sectionId) {
+    const body = btn.closest('.suppl-body');
+    const tabs = body.querySelectorAll('.tab-btn');
+    const panes = body.querySelectorAll('.tab-pane');
+    const idx = Array.from(tabs).indexOf(btn);
+
+    tabs.forEach(t => t.classList.remove('active'));
+    panes.forEach(p => p.classList.remove('active'));
+
+    btn.classList.add('active');
+    panes[idx].classList.add('active');
+  }
+
+  // Highlight active nav link on scroll
+  const sections = document.querySelectorAll('[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
